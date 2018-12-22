@@ -22,6 +22,7 @@ App.controller('AppController',function($scope,$window){
 
 $scope.SearchWinner = function(resultnumber)
 {
+  $scope.resultednumber = resultnumber;
   $scope.result = 'And it`s Number......: '+resultnumber;
   $scope.winnermenmber = [];
   $scope.membersList.map((value) =>{
@@ -32,6 +33,7 @@ $scope.SearchWinner = function(resultnumber)
   });
   if($scope.winnermenmber.length <= 0)
   {
+	  responsiveVoice.speak('No one won this round.');
     Swal({
       type: 'error',
       title: 'Oops...!',
@@ -41,6 +43,10 @@ $scope.SearchWinner = function(resultnumber)
   else
   {
     $scope.winnername =  'CONGRATULATIONS '+$scope.winnermenmber[0].membername+' \n \n \n \n \n \n \n \n YOU ARE THE WINNER!!!';
+	
+	responsiveVoice.speak(String($scope.winnername+" and thank you to all for participating in this game"));
+	
+	
     $('.demo').fireworks({ sound: true, opacity: 0.9, width: '100%', height: '100%' });
 
    
@@ -80,7 +86,7 @@ $scope.CheckNumberValidation = function(number,indx)
       lastFace,
       timeoutId,
       transitionDuration = 500,
-      animationDuration = 3000;
+      animationDuration = 6000;
 
     $('ul > li > a').click(function () {
       reset();
@@ -111,15 +117,18 @@ $scope.CheckNumberValidation = function(number,indx)
     }
 
     $('.randomize, .die').click(function () {
-      $die.addClass('rolling');
+     
+      clearInterval(welcomsound);
+      responsiveVoice.speak(String("IP team welcomes all the participents.\n\n this round will start shortly.\n\n\n all the best for all the participents."));
+     var welcomsound = setTimeout(function () {
+        $die.addClass('rolling');
       clearTimeout(timeoutId);
-
       timeoutId = setTimeout(function () {
         $die.removeClass('rolling');
 
         rollTo(randomFace());
       }, animationDuration);
-
+    }, 7500);
       return false;
     });
 

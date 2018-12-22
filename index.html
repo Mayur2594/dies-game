@@ -6,13 +6,13 @@
   <script src='js/css_reload.js'></script>
   <script src="js/angular.min.js"></script>
   <script src="js/appController.js"></script>
-  
+
   <meta charset='UTF-8'>
   <meta name="robots" content="noindex">
 
 
   <link rel='stylesheet' href='css/normalize.min.css' />
-  <link rel="stylesheet" href="css/sweetalert2.min.css"/>
+  <link rel="stylesheet" href="css/sweetalert2.min.css" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <style class="cp-pen-styles">
     @-webkit-keyframes roll {
@@ -98,8 +98,8 @@
     }
 
     .die.rolling {
-      -webkit-animation: roll 3s linear;
-      animation: roll 3s linear;
+      -webkit-animation: roll 6s linear;
+      animation: roll 6s linear;
     }
 
     .die[data-face="1"] {
@@ -209,7 +209,7 @@
       margin: 0 -50px;
       border-left: 50px solid transparent;
       border-right: 50px solid transparent;
-      border-bottom: 86px solid rgba(30, 180, 20, 0.75);
+      border-bottom: 86px solid rgba(240, 35, 8, 0.75);
       width: 0px;
       height: 0px;
       -webkit-transform-style: preserve-3d;
@@ -378,15 +378,31 @@
     .text-white {
       color: #fafafa !important;
     }
-    .resulteddiv
-    {
+
+    .resulteddiv {
       top: 0 !important;
       position: absolute;
       z-index: 10 !important;
       color: #fafafa;
     }
-    .demo { margin:0 auto; width:100%; height:100%;}
-h1 { margin:150px auto 30px auto; text-align:center; font-family:'Roboto'; color: #fafafa;z-index: 2!important;}
+
+    .winningNumber {
+      border-bottom-color: green !important;
+    }
+
+    .demo {
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      margin: 150px auto 30px auto;
+      text-align: center;
+      font-family: 'Roboto';
+      color: #fafafa;
+      z-index: 2 !important;
+    }
   </style>
 </head>
 
@@ -396,37 +412,37 @@ h1 { margin:150px auto 30px auto; text-align:center; font-family:'Roboto'; color
 
     <div class="row">
       <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12" style="height:620px;overflow: hidden">
-          <div class="col-md-12 col-lg-12 text-center text-white resulteddiv">
-              <h1>{{result}}</h1>
-      
-              <h1>{{winnername}}</h1>
+        <div class="col-md-12 col-lg-12 text-center text-white resulteddiv">
+          <h1>{{result}}</h1>
 
-              <button class="btn btn-primary" ng-if="winnername" onclick="location.reload();">New Game</button>
-            </div>
+          <h1>{{winnername}}</h1>
+
+          <button class="btn btn-primary" ng-if="winnername" onclick="location.reload();">New Game</button>
+        </div>
         <div class="col-md-12 col-lg-12 mt-6">
 
           <div class="content mt-5">
             <div class="die mt-5">
-              <figure class="face face-1" id="1"></figure>
-              <figure class="face face-2" id="2"></figure>
-              <figure class="face face-3" id="3"></figure>
-              <figure class="face face-4" id="4"></figure>
-              <figure class="face face-5" id="5"></figure>
-              <figure class="face face-6" id="6"></figure>
-              <figure class="face face-7" id="7"></figure>
-              <figure class="face face-8" id="8"></figure>
-              <figure class="face face-9" id="9"></figure>
-              <figure class="face face-10" id="10"></figure>
-              <figure class="face face-11" id="11"></figure>
-              <figure class="face face-12" id="12"></figure>
-              <figure class="face face-13" id="13"></figure>
-              <figure class="face face-14" id="14"></figure>
-              <figure class="face face-15" id="15"></figure>
-              <figure class="face face-16" id="16"></figure>
-              <figure class="face face-17" id="17"></figure>
-              <figure class="face face-18" id="18"></figure>
-              <figure class="face face-19" id="19"></figure>
-              <figure class="face face-20" id="20"></figure>
+              <figure class="face face-1" id="1" ng-class="{winningNumber: resultednumber === 1}"></figure>
+              <figure class="face face-2" id="2" ng-class="{winningNumber: resultednumber === 2}"></figure>
+              <figure class="face face-3" id="3" ng-class="{winningNumber: resultednumber === 3}"></figure>
+              <figure class="face face-4" id="4" ng-class="{winningNumber: resultednumber === 4}"></figure>
+              <figure class="face face-5" id="5" ng-class="{winningNumber: resultednumber === 5}"></figure>
+              <figure class="face face-6" id="6" ng-class="{winningNumber: resultednumber === 6}"></figure>
+              <figure class="face face-7" id="7" ng-class="{winningNumber: resultednumber === 7}"></figure>
+              <figure class="face face-8" id="8" ng-class="{winningNumber: resultednumber === 8}"></figure>
+              <figure class="face face-9" id="9" ng-class="{winningNumber: resultednumber === 9}"></figure>
+              <figure class="face face-10" id="10" ng-class="{winningNumber: resultednumber === 10}"></figure>
+              <figure class="face face-11" id="11" ng-class="{winningNumber: resultednumber === 11}"></figure>
+              <figure class="face face-12" id="12" ng-class="{winningNumber: resultednumber === 12}"></figure>
+              <figure class="face face-13" id="13" ng-class="{winningNumber: resultednumber === 13}"></figure>
+              <figure class="face face-14" id="14" ng-class="{winningNumber: resultednumber === 14}"></figure>
+              <figure class="face face-15" id="15" ng-class="{winningNumber: resultednumber === 15}"></figure>
+              <figure class="face face-16" id="16" ng-class="{winningNumber: resultednumber === 16}"></figure>
+              <figure class="face face-17" id="17" ng-class="{winningNumber: resultednumber === 17}"></figure>
+              <figure class="face face-18" id="18" ng-class="{winningNumber: resultednumber === 18}"></figure>
+              <figure class="face face-19" id="19" ng-class="{winningNumber: resultednumber === 19}"></figure>
+              <figure class="face face-20" id="20" ng-class="{winningNumber: resultednumber === 20}"></figure>
             </div>
           </div>
         </div>
@@ -438,32 +454,32 @@ h1 { margin:150px auto 30px auto; text-align:center; font-family:'Roboto'; color
         <div class="col-md-12 col-sm-12 col-lg-12"><button class="btn btn-primary" ng-click="addNewRoe()">Add New</button>
           <button class="btn btn-primary pull-right" onclick="location.reload()">New Game</button>
         </div>
-        <div class="col-md-12 col-sm-12 col-lg-12"  style="height:580px;overflow: auto">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <th></th>
-              <th class="text-center text-white">Member</th>
-              <th class="text-center text-white">Number</th>
-              <th class="text-center text-white">Action</th>
-            </thead>
-            <tbody>
-              <tr ng-repeat="data in membersList" id="memberrow{{$index}}">
-                <td class="text-white">{{$index+1}} </td>
-                <td><input class="form-control" placeholder="Name" ng-model="data.membername" autofocus/></td>
-                <td><input class="form-control" placeholder="Number" ng-model="data.number" ng-blur="CheckNumberValidation(data.number,$index)"/></td>
-                <td><button class="btn btn-warning" ng-click="RemoveRow($index)">Remove</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div class="col-md-12 col-sm-12 col-lg-12" style="height:580px;overflow: auto">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <th></th>
+                <th class="text-center text-white">Member</th>
+                <th class="text-center text-white">Number</th>
+                <th class="text-center text-white">Action</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="data in membersList" id="memberrow{{$index}}">
+                  <td class="text-white">{{$index+1}} </td>
+                  <td><input class="form-control" placeholder="Name" ng-model="data.membername" autofocus /></td>
+                  <td><input class="form-control" placeholder="Number" ng-model="data.number" ng-blur="CheckNumberValidation(data.number,$index)" /></td>
+                  <td><button class="btn btn-warning" ng-click="RemoveRow($index)">Remove</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-    
+
     <div class="demo">
-       
-      </div>
+
+    </div>
   </div>
 
 
@@ -499,6 +515,7 @@ h1 { margin:150px auto 30px auto; text-align:center; font-family:'Roboto'; color
   <script src='js/jquery.min.js'></script>
   <script src="js/jquery.fireworks.js"></script>
   <script src="js/sweetalert2.min.js"></script>
+  <script src="js/responsivevoice.js"></script>
 </body>
 
 </html>
